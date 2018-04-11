@@ -156,7 +156,7 @@ public class InstallAct extends AppCompatActivity {
                   DatagramSocket responseSocket2 = new DatagramSocket(12597);
                   DatagramPacket sendPacket = new DatagramPacket(buf2, buf2.length, packet.getAddress(), 12597);
                   // 发送消息
-                  responseSocket2.send(sendPacket)test;
+                  responseSocket2.send(sendPacket)test2;
                   responseSocket2.close();*/
 
                   String fromIP = packet.getSocketAddress().toString();
