@@ -105,6 +105,10 @@ public class InstallAct extends AppCompatActivity {
         findViewById(R.id.freefiles).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (fileArr == null) {
+                    dialog("获取服务器文件失败！");
+                    return;
+                }
                      Intent intent = new Intent(InstallAct.this,FreeAct.class);
                      intent.putExtra("free_files",fileArr);
                      intent.putExtra("hostIP",hostIP);
@@ -156,7 +160,7 @@ public class InstallAct extends AppCompatActivity {
                   DatagramSocket responseSocket2 = new DatagramSocket(12597);
                   DatagramPacket sendPacket = new DatagramPacket(buf2, buf2.length, packet.getAddress(), 12597);
                   // 发送消息
-                  responseSocket2.send(sendPacket)test2;
+                  responseSocket2.send(sendPacket);
                   responseSocket2.close();*/
 
                   String fromIP = packet.getSocketAddress().toString();
@@ -167,7 +171,7 @@ public class InstallAct extends AppCompatActivity {
                   final int serverVersion = Integer.parseInt(new String(content,0,4));
                   final int curversion = getPackageManager().getPackageInfo(InstallAct.this.getPackageName(),0).versionCode;
 
-                   fileArr = new String(Arrays.copyOfRange(content,4,packet.getLength()));
+                  fileArr = new String(Arrays.copyOfRange(content, 4, packet.getLength()), "utf-8");
 
                   String[] files = fileArr.split("#",-1);
 

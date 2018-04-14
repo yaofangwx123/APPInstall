@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
+              android:background="#000000"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
@@ -8,7 +9,7 @@
         android:id="@+id/freecurpath"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:background="#000000"
         android:textColor="#FF0000"
         android:gravity="center"
@@ -16,12 +17,28 @@
         android:textStyle="bold"
         android:text="服务器文件列表"/>
 
-    <ListView
-        android:id="@+id/freelist"
-        android:background="#000000"
-        android:layout_width="match_parent"
+
+    <FrameLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:background="@drawable/freelistframe"
         android:layout_height="0dp"
-        android:layout_weight="7"/>
+        android:layout_weight="9">
+
+        <ListView
+            android:layout_margin="15dp"
+            android:id="@+id/freelist"
+            android:background="#000000"
+            android:dividerHeight="10dp"
+            android:divider="#00000000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </FrameLayout>
+
     <LinearLayout
         android:visibility="gone"
         android:gravity="center"
